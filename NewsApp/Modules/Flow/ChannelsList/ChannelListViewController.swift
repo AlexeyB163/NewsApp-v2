@@ -63,7 +63,7 @@ extension ChannelsListViewController {
         let buttonDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissScreen))
         navigationItem.title = String(localized: "title_ChannelsList")
         navigationItem.rightBarButtonItem = buttonDone
-        navigationController?.navigationBar.backgroundColor = .systemGray2
+        navigationController?.navigationBar.backgroundColor = .white
     }
 
     @objc private func dismissScreen() {
