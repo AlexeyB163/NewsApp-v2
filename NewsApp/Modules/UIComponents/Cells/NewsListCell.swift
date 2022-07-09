@@ -32,6 +32,7 @@ class NewsListCell: UITableViewCell, CellNewsListModelRepresentable {
 
     private let publishedAtLabel: UILabel = {
         let label = UILabel()
+        
         label.font = .systemFont(ofSize: 14, weight: .medium)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +52,7 @@ class NewsListCell: UITableViewCell, CellNewsListModelRepresentable {
         let image = UIImage()
         var imageView = UIImageView()
         
-        imageView = UIImageView(frame: CGRect(x: 210, y: 36, width: 10, height: 10))
+        imageView = UIImageView(frame: CGRect(x: 205, y: 36, width: 10, height: 10))
         imageView.layer.cornerRadius = imageView.frame.width/2
         imageView.image = image
         
@@ -62,7 +63,7 @@ class NewsListCell: UITableViewCell, CellNewsListModelRepresentable {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .medium)
         label.textAlignment = .left
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         
 
@@ -118,13 +119,15 @@ class NewsListCell: UITableViewCell, CellNewsListModelRepresentable {
         newsImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         newsImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
         
+        
         publishedAtLabel.leftAnchor.constraint(equalTo: newsImage.rightAnchor, constant: 10).isActive = true
         publishedAtLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        
 
         unbranderingLabel.leftAnchor.constraint(equalTo: newsImage.rightAnchor, constant: 10).isActive = true
         unbranderingLabel.topAnchor.constraint(equalTo: publishedAtLabel.bottomAnchor, constant: 5).isActive = true
 
-        descriptionLabel.topAnchor.constraint(equalTo: unbranderingLabel.bottomAnchor, constant: 0).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
         descriptionLabel.leftAnchor.constraint(equalTo: newsImage.rightAnchor, constant: 10).isActive = true
         descriptionLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10).isActive = true
