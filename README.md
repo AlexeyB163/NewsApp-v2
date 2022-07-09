@@ -46,8 +46,6 @@ _**Поиск новостей.**_
 - Если поиск не дал результатов, то должна отображаться заглушка. 
 - По нажатию на ячейку с найденной новостью открывается экран с полным текстом новости
 
-###Screenshots
-
 Main screen                |  ChannelsList             | News List                 
 :-------------------------:|:-------------------------:|:-------------------------: 
 ![MainScreen](https://user-images.githubusercontent.com/95183655/178122723-5aca722b-2135-465b-8f00-ee3f70131038.png) | ![ChannelsList](https://user-images.githubusercontent.com/95183655/178122734-d192f7e8-b3e1-4063-8005-a2fe99c742ae.png) | ![NewsList](https://user-images.githubusercontent.com/95183655/178122775-6bf12a86-d7dd-495d-8c8f-fe9e588bf4c4.png)
