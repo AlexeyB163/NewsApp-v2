@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  NewsApp
+
+  Created by User on 08.07.2022.
+  
+*/
+// MARK: - TabBar
+"title_tabBar_news" = "Новости";
+"title_tabBar_searchNews" = "Поиск";
+"title_edit_button" = "Каналы";
+
+// MARK: - MainScreen
+"mainScreen_title" = "Новости";
+"select_channels" = "Выберите ваши любимые каналы!";
+
+// MARK: - NewsList
+"searching_news" = "поиск новостей...";
+
+// MARK: -  NewsSearch
+"result_search_NewsSearch" = "Новости не найдены";
+"title_NewsSearch" = "Поиск новостей";
+"search_query" = "поисковый запрос";
+
+// MARK: - ChannelsList
+"title_ChannelsList" = "Новостые каналы";
+
+// MARK: - Cells
+"status_unread" = "нет непрочитаных";
+"unread" = "не прочитано";
+"unbrandering" = "Просмотрено";
