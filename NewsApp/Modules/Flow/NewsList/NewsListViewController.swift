@@ -47,8 +47,8 @@ class NewsListViewController: UIViewController {
         
         if self.refreshControl.isRefreshing == true {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.tableView.reloadData()
             }
         }
     }
