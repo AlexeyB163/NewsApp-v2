@@ -53,6 +53,6 @@ Main screen                |  ChannelsList             | News List
 ![MainScreen](https://user-images.githubusercontent.com/95183655/178122723-5aca722b-2135-465b-8f00-ee3f70131038.png) | ![ChannelsList](https://user-images.githubusercontent.com/95183655/178122734-d192f7e8-b3e1-4063-8005-a2fe99c742ae.png) | ![NewsList](https://user-images.githubusercontent.com/95183655/178122775-6bf12a86-d7dd-495d-8c8f-fe9e588bf4c4.png)
 
 
-Refresh News List          |  Search News              
-:-------------------------:|:-------------------------: 
-![Refresh](https://user-images.githubusercontent.com/95183655/178122813-58847241-a92c-4452-ab6a-49d85d3956ca.png) | ![SearchNews](https://user-images.githubusercontent.com/95183655/178122434-ef718303-131f-46c2-82af-c8e6c2043e12.png)
+Refresh News List          |  Search News             | Web 
+:-------------------------:|:------------------------:|:-------------------------:
+![Refresh](https://user-images.githubusercontent.com/95183655/178122813-58847241-a92c-4452-ab6a-49d85d3956ca.png) | ![SearchNews](https://user-images.githubusercontent.com/95183655/178122434-ef718303-131f-46c2-82af-c8e6c2043e12.png) | ![web](https://user-images.githubusercontent.com/95183655/178714128-5a3c7f6e-46a8-4588-a192-eab35c59a44f.png)
