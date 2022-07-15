@@ -35,6 +35,7 @@ class MainScreenViewController: UIViewController {
     }
 
     var collectionView: UICollectionView! = nil
+    let activityIndicatorView = UIActivityIndicatorView(style: .medium)
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,8 +46,12 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MainScreenConfigurator.shared.configur(with: self)
+        
         setupNavigationBar()
         setupCollectionView()
+        collectionView.addSubview(activityIndicatorView)
+        activityIndicatorView.center = collectionView.center
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         getNews()
@@ -57,8 +62,10 @@ class MainScreenViewController: UIViewController {
     }
 
     private func getNews() {
-        interactor?.fetchNews()
-        
+        DispatchQueue.global().async {
+            self.interactor?.fetchNews()
+        }
+        self.activityIndicatorView.startAnimating()
     }
     
     private func checkStatusSelectedChannels() -> Bool {
@@ -87,11 +94,13 @@ extension MainScreenViewController: MainScreenDisplayLogicProtocol {
     func displayMainNews(viewModel: MainNewsList.ShowNews.ViewModel) {
         items = viewModel.items
         collectionView.reloadData()
+        activityIndicatorView.stopAnimating()
     }
 
     func updateNews(viewModel: MainNewsList.ShowNews.ViewModel) {
         items = viewModel.items
         collectionView?.reloadData()
+        
         
         if checkStatusSelectedChannels() {
             collectionView.backgroundView = nil
