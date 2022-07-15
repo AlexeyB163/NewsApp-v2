@@ -58,7 +58,6 @@ class NewsListInteractor: NewsListBusinessLogicProtocol, NewsListDataStoreProtoc
     }
 
     var presenter: NewsListPresentationLogicProtocol?
-    //var worker: NewsListWorker?
 
     
     func reFetchNews(queryType: QueryType) {
@@ -72,7 +71,7 @@ class NewsListInteractor: NewsListBusinessLogicProtocol, NewsListDataStoreProtoc
                                             .set(path: .topHeadlines)
                                             .setQueryParams(queryType: queryType, queryValue: query)
                                             .build()
-                ) { [ weak self ]result in
+                ) { [ weak self ] result in
             
                 switch result {
                 case .success(let news):
@@ -80,7 +79,6 @@ class NewsListInteractor: NewsListBusinessLogicProtocol, NewsListDataStoreProtoc
                     self?.findReadedNews()
                     self?.updateNews()
                     
-    
                 case .failure(let error):
                     print(error)
             }
@@ -132,8 +130,8 @@ class NewsListInteractor: NewsListBusinessLogicProtocol, NewsListDataStoreProtoc
         for (index, item) in newsUpdated.enumerated() {
             readedNews.forEach { url in
                 if item.url == url {
-                    self.newsUpdated[index].unread = false
-                    self.newsUpdated[index].unbrandening = false
+                    newsUpdated[index].unread = false
+                    newsUpdated[index].unbrandening = false
                 }
             }
         }
