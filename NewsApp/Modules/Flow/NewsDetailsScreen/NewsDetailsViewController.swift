@@ -8,19 +8,25 @@
 import UIKit
 import WebKit
 
-class NewsDetailsViewController: UIViewController {
+class NewsDetailsViewController: UIViewController{
 
     var url: String? {
         didSet {
+            activityIndicatorView.startAnimating()
             displayNews()
         }
     }
     let webView = WKWebView()
+    let activityIndicatorView = UIActivityIndicatorView(style: .medium)
+    private var observation: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
         setupConstraint()
+        self.view.addSubview(activityIndicatorView)
+        activityIndicatorView.center = self.view.center
+        
     }
 
     private func setupWebView() {
@@ -40,5 +46,8 @@ class NewsDetailsViewController: UIViewController {
         guard let url = URL(string: url ?? "") else { return}
         let request = URLRequest(url: url)
         webView.load(request)
+        self.observation = webView.observe(\WKWebView.estimatedProgress, options: .new) { _, change in
+            self.activityIndicatorView.stopAnimating()
+        }
     }
 }
