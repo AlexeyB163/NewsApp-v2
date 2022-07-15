@@ -46,15 +46,15 @@ class NewsSearchInteractor: NewsSearchBusinessLogicProtocol, NewsSearchDataStore
                                             .set(path: .topHeadlines)
                                             .setQueryParams(queryType: queryType, queryValue: query)
                                             .build()
-                ) { result in
+                ) { [weak self ]result in
             
                 switch result {
                 case .success(let news):
-                    self.news = news
-                    self.findReadedNews()
-                    DateConverter.shared.setFormatedDatePublished(news: &self.news)
-                    let response = NewsSearch.ShowNews.Response(news: self.news)
-                    self.presenter?.presentNewsSearch(response: response)
+                    self?.news = news
+                    self?.findReadedNews()
+                    DateConverter.shared.setFormatedDatePublished(news: &self!.news)
+                    let response = NewsSearch.ShowNews.Response(news: self?.news ?? [])
+                    self?.presenter?.presentNewsSearch(response: response)
                 case .failure(let error):
                     print(error)
             }
