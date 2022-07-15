@@ -27,7 +27,7 @@ class DateConverter {
     
    static let shared = DateConverter()
     
-    private func getFormatedDate(datePublished: inout String) -> Double {
+    private func getFormatedDate(datePublished: String) -> Double {
         
         var timeInterval: Double = 0
         
@@ -35,10 +35,12 @@ class DateConverter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
        
+
         if let date = dateFormatter.date(from: datePublished) {
             timeInterval = currentDate.timeIntervalSince(date) / 60
         } else {
-            adjustDatePublished(datePublished: &datePublished)
+            let datePublished = adjustDatePublished(datePublished: datePublished)
+            
             let date = dateFormatter.date(from: datePublished)
             timeInterval = currentDate.timeIntervalSince(date ?? Date()) / 60
         }
@@ -46,18 +48,24 @@ class DateConverter {
         return timeInterval
     }
     
-    private func adjustDatePublished(datePublished: inout String) {
-        let start = datePublished.index(datePublished.startIndex, offsetBy: 19)
-        let end = datePublished.index(datePublished.endIndex, offsetBy: -2)
-        let range = start...end
-        datePublished.removeSubrange(range)
+    private func adjustDatePublished(datePublished: String) -> String {
+        var datePublished: String = datePublished
+        
+        if datePublished.count > 21 {
+            let start = datePublished.index(datePublished.startIndex, offsetBy: 19)
+            let end = datePublished.index(datePublished.endIndex, offsetBy: -2)
+            let range = start...end
+            datePublished.removeSubrange(range)
+        }
+        
+        return datePublished
     }
     
     func setFormatedDatePublished( news: inout [News]) {
         for (index, item) in news.enumerated() {
-            var published: String = item.publishedAt ?? ""
+            let published: String = item.publishedAt ?? ""
             
-            let time = Int(ceil(getFormatedDate(datePublished: &published)))
+            let time = Int(ceil(getFormatedDate(datePublished: published)))
 
             switch time {
             case _ where time > 0 && time < 1 :
